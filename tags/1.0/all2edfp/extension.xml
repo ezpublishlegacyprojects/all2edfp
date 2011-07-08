@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<software>
+    <metadata>
+        <name><![CDATA[<a href="http://www.all2e.com">all2edfp</a> Google DoubleClick for Publishers]]></name>
+        <version>1.0</version>
+        <copyright>Copyright (C) 2011 Norman Leutner all2e GmbH</copyright>
+        <license>GNU General Public License v2.0</license>
+        <info_url><![CDATA[<a href="http://projects.ez.no/all2edfp">http://projects.ez.no/all2edfp</a>]]></info_url>
+    </metadata>
+
+    <dependencies>
+        <requires>
+            <extension name="ezjscore" />
+        </requires>
+    </dependencies>
+</software>

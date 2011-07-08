@@ -1,0 +1,97 @@
+GENERAL INFORMATION
+===========================
+Name:                     all2edfp
+Description:              all2edfp implements the Google DoubleClick for Publishers (dfp) AdServer functionality within eZ Publish
+Author:                   Norman Leutner( all2e GmbH, http://www.all2e.com )
+Mail:                     n.leutner@all2e.com
+Date of creation:         May 27th 2011
+Version:                  1.0
+
+EXTENSION INSTALLATION
+===========================
+(1)  Extract the extension into your extension folder ex:"ezrootdir/extensions"
+
+(2)  Activate the extension by adding the following lines to your
+     global override settings "settings/override/site.ini.append.php":
+
+     [ExtensionSettings]
+     ActiveExtensions[]=all2edfp
+
+     Remember to clear the cache files and to regenerate the autoloads after activating the extension !
+
+GENERAL CONFIGURATION
+===========================
+(1)  PAGELAYOUT
+     The extension needs the render_ads.tpl to be included within the pagelayout in an extra cache-block.
+     For default ezflow/ezwebin installations, an override is placed under: all2edfp/design/ezwebin/templates/pagelayout.tpl
+     which includes everything needed at line 111 until 116
+     
+     If you are using you own pagelayout, you'll need to include the following lines:
+     
+         {* all2e Google DFP integration*}
+         {cache-block keys=$uri_string ignore_content_expiry}
+         <!-- all2e Google dfp: START -->
+         {include uri='design:all2edfp/render_ads.tpl'}
+         <!-- all2e Google dfp: END -->
+         {/cache-block}
+
+(2)  GOOGLE dfp inventory ad unit configuration
+     This extension comes with a set of predefined ad-blocks, which can be used with eZ Flow.
+     Therefore your inventory ad unit definition in Google dfp needs to be named EXACTLY the same way.
+     
+     Currently the predefined inventory ad units are:
+     skyscraper
+     wide_skyscraper
+     square
+     rectangle_3_1
+     medium_rectangle 
+     leaderboard
+     
+     Within doc/ you'll find an screenshot of the inventory definition.
+     
+     If the same ad unit occurs more than once on a single page, the extension automatically prepends a counter to the unit's 
+     name due to Google isn't able to handle this directly.
+     So you'll need some additional ad units defined in the google dfp like:
+     
+     square_1
+     square_2
+     square_3
+     
+     Please keep in mind that adding new ad units to the Google dfp inventory takes some time until they are online (5min up to several hours)
+
+(3)  Setting you published ID
+     Copy the all2edfp.ini.append.php in the global override folder (settings/override) and set your published ID.
+     
+     [DFPSettings]
+     #
+     # Google Publish ID
+     #
+     publisherID=ca-pub-YOURID
+     
+     The publisher ID can be found in the Google dfp "settings" tab under "network settings" https://www.google.com/dfp/admin#networkSettings
+
+Placing ads in other locations that eZ Flow blocks 
+===========================
+     The extension comes with a default set of templates for the default dfp inventory ad units.
+     Placing ads in your custom templates can easily dome by including a dfp template like:
+     
+     {include uri='design:all2edfp/includes/leaderboard.tpl'}
+     
+     You may also use the template operator directly:
+     
+         <div id="dfp_leaderboard" style="height:90px;width:728px;"></div>
+         {all2edfp_require('leaderboard','dfp_leaderboard')}
+         
+     The template operator takes the dfp ad unit name as first parameter and the id of the corresponding div element as second parameter.
+     The extension will place the ad directly over the corresponding div.
+
+
+SUPPORT & TROUBLESHOOTING
+===========================
+     If ads are not shown, it's a good idea to take a look at the google debug by appending ?google_debug to the url.
+     This will bring up a Popup with debug information.
+     
+     If you're having trouble installing or setting up the extension or just want to give some feedback or feature requests, 
+     feel free to write me a mail to <n.leutner@all2e.com> or visit the projectpage under: http://projects.ez.no/all2edfp
+     
+     
