@@ -106,14 +106,12 @@
 {include uri='design:page_footer_script.tpl'}
 <!-- Footer script area: END -->
 
-{/cache-block}
-
-{* all2e Google DFP integration*}
-{cache-block keys=$uri_string ignore_content_expiry}
+{* all2e Google DFP integration *}
 <!-- all2e Google dfp: START -->
 {include uri='design:all2edfp/render_ads.tpl'}
 <!-- all2e Google dfp: END -->
 {/cache-block}
+
 
 {* This comment will be replaced with actual debug report (if debug is on). *}
 <!--DEBUG_REPORT-->
