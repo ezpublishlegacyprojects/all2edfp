@@ -36,7 +36,7 @@ wide_skyscraper[text-align]=center
 square[width]=268px
 square[text-align]=center
 
-rectangle_3_1[width]=468px
+rectangle_3_1[width]=300px
 rectangle_3_1[text-align]=center
 
 medium_rectangle[width]=300px
