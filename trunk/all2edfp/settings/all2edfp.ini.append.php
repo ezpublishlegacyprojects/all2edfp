@@ -39,7 +39,7 @@ square[text-align]=center
 rectangle_3_1[width]=468px
 rectangle_3_1[text-align]=center
 
-medium_rectangle[width]=468px
+medium_rectangle[width]=300px
 medium_rectangle[text-align]=center
 
 leaderboard[width]=720px
